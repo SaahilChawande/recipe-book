@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content padding>
-  <form>
+  <form #f="ngForm" (ngSubmit)="onAddItem(f)">
     <ion-list>
       <ion-item>
         <ion-label fixed>Name</ion-label>
