@@ -6,7 +6,6 @@ import {NgForm} from "@angular/forms";
   templateUrl: 'shopping-list.html',
 })
 export class ShoppingListPage {
-
   constructor() {}
 
   onAddItem(form: NgForm) {
