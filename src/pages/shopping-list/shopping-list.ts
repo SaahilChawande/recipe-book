@@ -27,4 +27,9 @@ export class ShoppingListPage {
     this.ingredients = this.shoppingListService.getItems();
   }
 
+  onItemClick(index: number)  {
+    this.shoppingListService.removeItem(index);
+    this.loadItems();
+  }
+
 }
