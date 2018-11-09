@@ -11,7 +11,7 @@ export class RecipesService {
   }
 
   getRecipes()  {
-    this.recipes.slice();
+    return this.recipes.slice();
   }
 
   updateRecipe(index: number, title: string, description: string, difficulty: string, ingredients: Ingredient[])  {
