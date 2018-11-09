@@ -8,13 +8,18 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class EditRecipePage implements OnInit{
   mode = 'New';
-  selectOptions = ['Easy', 'Medium', 'Difficult'];
+  selectOptions = ['Easy', 'Medium', 'Hard'];
   recipeForm: FormGroup;
 
   constructor(private navParams: NavParams) {}
 
   ngOnInit()  {
     this.mode = this.navParams.get('mode');
+    this.initializeForm();
+  }
+
+  onSubmit()  {
+    console.log(this.recipeForm);
   }
 
   private initializeForm()  {
