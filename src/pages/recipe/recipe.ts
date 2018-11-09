@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Recipe} from "../../models/recipe";
-import {NavParams} from "ionic-angular";
+import {NavController, NavParams} from "ionic-angular";
+import {EditRecipePage} from "../edit-recipe/edit-recipe";
 
 @Component({
   selector: 'page-recipe',
@@ -10,7 +11,7 @@ export class RecipePage implements OnInit{
   recipe: Recipe;
   index: number;
 
-  constructor(private navParams: NavParams) {}
+  constructor(private navCtrl: NavController, private navParams: NavParams) {}
 
   ngOnInit()  {
     this.recipe = this.navParams.get('recipe');
@@ -19,7 +20,9 @@ export class RecipePage implements OnInit{
 
   onAddIngredients()  {}
 
-  onEditRecipe()  {}
+  onEditRecipe()  {
+    this.navCtrl.push(EditRecipePage, {mode: 'Edit', recipe: this.recipe, index: this.index});
+  }
 
   onDeleteRecipe()  {}
 }
