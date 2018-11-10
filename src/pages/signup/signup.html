@@ -18,7 +18,7 @@
       </ion-item>
       <ion-item>
         <ion-label fixed>Password</ion-label>
-        <ion-input type="password" ngModel name="password"></ion-input>
+        <ion-input type="password" ngModel name="password" [minlength]="6" required></ion-input>
       </ion-item>
     </ion-list>
     <button ion-button block type="submit" [disabled]="!f.valid">Sign Up</button>
