@@ -15,6 +15,7 @@ export class MyApp {
   tabsPage:any = TabsPage;
   signinPage = SigninPage;
   signupPage = SignupPage;
+  isAuthenticated = false;
 
   @ViewChild('nav') nav: NavController;
 
@@ -22,6 +23,15 @@ export class MyApp {
     firebase.initializeApp({
       apiKey: "AIzaSyDWxDuv-1BrfwsU52lov1aPqaWxv9h-s5w",
       authDomain: "ionic2-recipebook-79abe.firebaseapp.com"
+    });
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.isAuthenticated = true;
+        this.nav.setRoot(this.tabsPage);
+      } else {
+        this.isAuthenticated = false;
+        this.nav.setRoot(this.signinPage);
+      }
     });
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
