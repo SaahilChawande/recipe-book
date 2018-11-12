@@ -45,7 +45,13 @@ export class ShoppingListPage {
         this.authService.getActiveUser().getIdToken()
           .then(
             (token: string) => {
-
+              this.shoppingListService.storeList(token)
+                .subscribe(
+                  () => console.log('Success!'),
+                  error => {
+                    console.log(error);
+                  }
+                )
             }
           );
       }
