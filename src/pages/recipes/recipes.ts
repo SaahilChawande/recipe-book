@@ -41,6 +41,9 @@ export class RecipesPage {
     const popover = this.popoverCtrl.create(SLOptionsPage);
     popover.present({ev: event});
     popover.onDidDismiss(data => {
+      if (!data)  {
+        return;
+      }
       if (data.action == 'load')  {
         loader.present();
         this.authService.getActiveUser().getIdToken()

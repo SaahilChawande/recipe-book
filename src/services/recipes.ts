@@ -40,7 +40,13 @@ export class RecipesService {
     const userId = this.authService.getActiveUser().uid;
     return this.http.get('https://ionic2-recipebook-79abe.firebaseio.com/' + userId + '/recipe-list.json?auth=' + token)
       .map((response: any) => {
-        return response.json();
+        const recipes : Recipe[] = response.json() ? response.json() : [];
+        for (let item of recipes) {
+          if (!item.hasOwnProperty('ingredients'))  {
+            item.ingredients = [];
+          }
+        }
+        return recipes;
       })
       .do((data) => {
         this.recipes = data;
