@@ -17,6 +17,7 @@ import {SigninPage} from "../pages/signin/signin";
 import {AuthService} from "../services/auth";
 import {SLOptionsPage} from "../pages/shopping-list/sl-options/sl-options";
 import {HttpModule} from "@angular/http";
+import {RecipesOptionsPage} from "../pages/recipes/recipes-options/recipes-options";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {HttpModule} from "@angular/http";
     TabsPage,
     SignupPage,
     SigninPage,
-    SLOptionsPage
+    SLOptionsPage,
+    RecipesOptionsPage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import {HttpModule} from "@angular/http";
     TabsPage,
     SignupPage,
     SigninPage,
-    SLOptionsPage
+    SLOptionsPage,
+    RecipesOptionsPage
   ],
   providers: [
     StatusBar,
